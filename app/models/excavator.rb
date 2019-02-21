@@ -1,0 +1,2 @@
+class Excavator < ApplicationRecord
+end
