@@ -1,5 +1,5 @@
 {
-  "name": "excavator_service",
+  "name": "excavation_service",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5"
