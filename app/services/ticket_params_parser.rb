@@ -14,7 +14,7 @@ class TicketParamsParser
         response_due_at: response_due_at,
         primary_service_area_code: @params.dig('ServiceArea', 'PrimaryServiceAreaCode', 'SACode'),
         additional_service_area_codes: @params.dig('ServiceArea', 'AdditionalServiceAreaCodes', 'SACode'),
-        digsite_polygon: @params.dig('ExcavationInfo', 'DigsiteInfo', 'WellKnownText'),
+        digsite_polygon: digsite_polygon,
         excavator_attributes: {
           company_name: excavator['CompanyName'],
           full_address: excavator_full_address,
@@ -41,5 +41,10 @@ class TicketParamsParser
   def response_due_at
     datetime_string = @params.dig('DateTimes', 'ResponseDueDateTime')
     DateTime.parse(datetime_string)
+  end
+
+  def digsite_polygon
+    polygon_string = @params.dig('ExcavationInfo', 'DigsiteInfo', 'WellKnownText')
+    polygon_string.delete('POLYGON()').split(',').map { |coordinates| coordinates.split(' ') }
   end
 end

@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 2019_02_21_000148) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "request_number"
+    t.string "request_number"
     t.integer "sequence_number"
     t.string "request_type"
     t.datetime "response_due_at"
     t.string "primary_service_area_code"
-    t.string "additional_service_area_code"
-    t.text "digsite_polygon"
+    t.text "additional_service_area_codes", default: [], array: true
+    t.decimal "digsite_polygon", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
