@@ -1,5 +1,11 @@
 # README
 
+## Install
+
+```
+rails db:setup
+```
+
 ## Tickets#index
 ![Ticketsindex](https://i.imgur.com/II50pRC.png)
 
