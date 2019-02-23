@@ -1,2 +1,28 @@
-h1 Tickets#index
-p Find me in app/views/tickets/index.html.slim
+h1 Tickets Index
+
+table.table
+  thead
+    tr
+      th Request Number
+      th Sequence Number
+      th Request Type
+      th Response Due Date Time
+      th Primary Service Area Code
+      th Additional Service Area Codes
+      th Excavator Company Name
+      th Excavator Full Address
+      th Excavator Crew On Site
+
+  tbody
+  - @tickets.each do |ticket|
+    tr
+      td
+        a href=ticket_path(ticket) = ticket.request_number
+      td= ticket.sequence_number
+      td= ticket.request_type
+      td= ticket.response_due_at
+      td= ticket.primary_service_area_code
+      td= ticket.additional_service_area_codes.join(', ')
+      td= ticket.excavator.company_name
+      td= ticket.excavator.full_address
+      td= ticket.excavator.crew_on_site

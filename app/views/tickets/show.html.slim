@@ -1,2 +1,21 @@
-h1 Tickets#show
-p Find me in app/views/tickets/show.html.slim
+h1= @ticket.request_number
+
+#polygon-map data-polygon=@ticket.digsite_polygon_json
+
+dl.row
+  dt.col-sm-3 Sequence Number
+  dd.col-sm-9= @ticket.sequence_number
+  dt.col-sm-3 Request Type
+  dd.col-sm-9= @ticket.request_type
+  dt.col-sm-3 Response Due Date Time
+  dd.col-sm-9= @ticket.response_due_at
+  dt.col-sm-3 Primary Service Area Code
+  dd.col-sm-9= @ticket.primary_service_area_code
+  dt.col-sm-3 Additional Service Area Codes
+  dd.col-sm-9= @ticket.additional_service_area_codes.join(', ')
+  dt.col-sm-3 Excavator Company Name
+  dd.col-sm-9= @ticket.excavator.company_name
+  dt.col-sm-3 Excavator Full Address
+  dd.col-sm-9= @ticket.excavator.full_address
+  dt.col-sm-3 Excavator Crew On Site
+  dd.col-sm-9= @ticket.excavator.crew_on_site

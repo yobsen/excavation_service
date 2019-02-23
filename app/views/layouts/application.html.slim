@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title ExcavationService
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all'
+
+  body
+    .container-fluid= yield
+    = javascript_include_tag 'application'
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{Rails.application.credentials.google_maps_api_key}&callback=initMap&libraries=geometry,drawing"
